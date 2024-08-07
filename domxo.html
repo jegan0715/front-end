@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .jo {
+        width: 60%;
+        height: 500px;
+        margin-left: 20%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: 165px;
+      }
+      .js {
+        width: 100%;
+        height: 100%;
+        border: 2px solid black;
+        text-align: center;
+        color: rgb(64, 172, 112);
+        font-size: 100px;
+        background-image: url("mother10.jfif");
+      }
+
+      .ki {
+        text-align: center;
+        font-size: 100px;
+      }
+      .js:hover {
+        color: blue;
+      }
+      .ki:hover {
+        color: rgb(214, 14, 14);
+      }
+      #kk{
+        width: 50%;
+        height: 600px;
+        margin-left: 25%;
+        position: absolute;
+        top: 5%;
+        background-image: url("win.jfif");
+        display: none;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="ki">XO GAME</div>
+     <div class="jo">
+      <div class="js" onclick="show(0)"></div>
+      <div class="js" onclick="show(1)"></div>
+      <div class="js" onclick="show(2)"></div>
+      <div class="js" onclick="show(3)"></div>
+      <div class="js" onclick="show(4)"></div>
+      <div class="js" onclick="show(5)"></div>
+      <div class="js" onclick="show(6)"></div>
+      <div class="js" onclick="show(7)"></div>
+      <div class="js" onclick="show(8)"></div>
+    </div>
+    <div id="kk" >
+      
+     
+    </div>
+   
+
+    <script>
+    let arr = [0,0,0,0,0,0,0,0,0]; 
+    let a = "x"; 
+    a1=0
+    let Count = 0; 
+    
+    function show(a1) {
+        console.log(a1)
+      if (!arr[a1]) { 
+        arr[a1] = a; 
+        document.getElementsByClassName("js")[a1].innerHTML = a; 
+        Count++; 
+        a = a === "x" ? "o" : "x"; 
+     } 
+     else {
+        
+        alert("Wrong move makku");
+      }
+      winner();
+      draw();
+    }
+      function winner() {
+        
+        if (arr[0] == "x" && arr[1] == "x" && arr[2] == "x") {
+        document.getElementById("kk").style.display="block"
+        
+        }
+        if (arr[3] == "x" && arr[4] == "x" && arr[5] == "x") {
+          document.getElementById("kk").style.display="block"
+        }
+      if (arr[6] == "x" && arr[7] == "x" && arr[8] == "x") {
+          document.getElementById("kk").style.display="block"
+        }
+        if (arr[0] == "x" && arr[3] == "x" && arr[6] == "x") {
+          document.getElementById("kk").style.display="block"
+        }
+        if (arr[1] == "x" && arr[4] == "x" && arr[7] == "x") {
+          document.getElementById("kk").style.display="block"
+        }
+        if (arr[2] == "x" && arr[5] == "x" && arr[8] == "x") {
+          document.getElementById("kk").style.display="block" 
+        }
+        if (arr[0] == "x" && arr[4] == "x" && arr[8] == "x") {
+          document.getElementById("kk").style.display="block"
+        }
+        if (arr[2] == "x" && arr[4] == "x" && arr[6] == "x") {
+          document.getElementById("kk").style.display="block"
+        } else if (arr[0] == "o" && arr[1] == "o" && arr[2] == "o") {
+          document.getElementById("kk").style.display="block" 
+        } 
+        else if (arr[3] == "o" && arr[4] == "o" && arr[5] == "o") {
+          document.getElementById("kk").style.display="block" 
+        } else if (arr[6] == "o" && arr[7] == "o" && arr[8] == "o") {
+          document.getElementById("kk").style.display="block"
+        } else if (arr[0] == "o" && arr[3] == "o" && arr[6] == "o") {
+          document.getElementById("kk").style.display="block" 
+        } else if (arr[1] == "o" && arr[4] == "o" && arr[7] == "o") {
+          document.getElementById("kk").style.display="block" 
+        } else if (arr[2] == "o" && arr[5] == "o" && arr[8] == "o") {
+          document.getElementById("kk").style.display="block"
+        } else if (arr[2] == "o" && arr[4] == "o" && arr[6] == "o") {
+          document.getElementById("kk").style.display="block"
+        } else if (arr[0] == "o" && arr[4] == "o" && arr[8] == "o") {
+          document.getElementById("kk").style.display="block"
+        }
+        
+        }
+        function draw(a1){
+          if(  Count===9){
+            alert("match draw")
+            window.location.reload()
+          }
+
+        }
+      
+    </script>
+  </body>
+</html>
